@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ *
+ * Best selling products block template.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper.
+ * - products: The rendered products.
+ *
+ * @ingroup themeable
+ */
+
+  <div class="best-seller-item">
+    <div class="card">
+      <img src="/themes/custom/petties/images/pet-harness.jpg" alt="Pet Harness">
+    </div>
+    <h3 class="product-name">Pet Harness</h3>
+    <div class="product-price">
+      <span class="current-price">65.00€</span>
+      <span class="old-price">130.00€</span>
+    </div>
+    <div class="product-rating">★★★★★</div>
+  </div>
+#}
+
+<div class="best-seller-grid">
+  {% for product in products %}
+    <div class="best-seller-item">
+      {{ product|without('#prefix', "#suffix") }}
+    </div>
+  {% endfor %}
+</div>
+

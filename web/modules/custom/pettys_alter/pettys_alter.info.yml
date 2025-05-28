@@ -1,0 +1,5 @@
+name: "Pettys Alter"
+type: module
+description: "Alter drupal core"
+package: Latifa
+core_version_requirement: ^10 || ^11

@@ -1,0 +1,85 @@
+.top-bar .social-icons p {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 26px;
+}
+
+form.commerce-currency-resolver-select-form input[type="submit"] {
+  display: none;
+}
+
+.overlay-icon form.commerce-order-item-add-to-cart-form input[type="submit"] {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  /* Background styling */
+  background-color: #ffffff; /* White background */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="m1 1 4 4 2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+
+  /* Text handling */
+  text-indent: -9999px; /* Hide text */
+  overflow: hidden;
+  white-space: nowrap;
+
+  /* Transitions and effects */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effects */
+.overlay-icon
+  form.commerce-order-item-add-to-cart-form
+  input[type="submit"]:hover {
+  background-color: #b77b50; /* Brown/tan color on hover */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="m1 1 4 4 2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>');
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active/pressed state */
+.overlay-icon
+  form.commerce-order-item-add-to-cart-form
+  input[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state for accessibility */
+.overlay-icon
+  form.commerce-order-item-add-to-cart-form
+  input[type="submit"]:focus {
+  outline: 2px solid #b77b50;
+  outline-offset: 2px;
+}
+
+/* Alternative with different icon (plus for add to cart) */
+/*
+.overlay-icon form.commerce-order-item-add-to-cart-form input[type="submit"] {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>');
+}
+*/
+/* Active/pressed state */
+.overlay-icon
+  form.commerce-order-item-add-to-cart-form
+  input[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state for accessibility */
+.overlay-icon
+  form.commerce-order-item-add-to-cart-form
+  input[type="submit"]:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}

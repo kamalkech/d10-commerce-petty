@@ -1,0 +1,19 @@
+name: petties
+type: theme
+base theme: stable9
+description: The official template front
+package: Custom
+core_version_requirement: ^10
+libraries:
+  - petties/global
+regions:
+  header_top: "Header Top"
+  header_top_right: "Header Top Right"
+  header_bottom: "Header Bottom"
+  header_bottom_right: "Header Bottom Right"
+  content: "Content"
+  feature: "Feature"
+  footer_top: "Footer Top"
+  footer_bottom: "Footer Bottom"
+
+screenshot: screen_petties.png

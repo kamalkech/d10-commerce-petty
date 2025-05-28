@@ -1,0 +1,58 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Functions to support theming in the petties theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function petties_preprocess_html(array &$variables): void {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function petties_preprocess_page(array &$variables): void {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function petties_preprocess_node(array &$variables): void {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
+function petties_preprocess_block(array &$variables) {
+  $currentLanguage = \Drupal::languageManager()
+    ->getCurrentLanguage();
+
+  $variables['language'] = $currentLanguage;
+  $variables['currentLanguageCode'] = $currentLanguage->getId();
+}
+
+/**
+ * Implements hook_preprocess_links__language_block().
+ */
+function petties_preprocess_links__language_block(&$variables) {
+  $currentLanguageCode = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+
+  $variables['language'] = \Drupal::languageManager()
+    ->getCurrentLanguage();
+  $variables['currentLanguageCode'] = $currentLanguageCode;
+
+  foreach ($variables['links'] as $i => $link) {
+    $linkLanguage = $link['link']['#options']['language'];
+    $variables['links'][$i]['id'] = $linkLanguage->get('id');
+  }
+}

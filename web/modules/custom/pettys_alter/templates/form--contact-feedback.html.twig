@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override for contact feedback form.
+ *
+ * Available variables:
+ * - element: The complete form render array.
+ */
+#}
+
+  {{ element.form_build_id }}
+  {{ element.form_token }}
+  {{ element.form_id }}
+
+    {{ element.name }}
+    {{ element.mail }}
+    {{ element.subject }}
+    {{ element.message }}
+    {{ element.actions }}
+
+  {{ element|without('form_build_id', 'form_token', 'form_id', 'name', 'mail', 'subject', 'message', 'actions') }}

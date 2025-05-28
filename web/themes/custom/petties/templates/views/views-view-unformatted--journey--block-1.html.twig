@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+<div class="journey-cards">
+  {% for row in rows %}
+    {% set entity = row.content['#row']._entity %}
+
+    <div class="journey-card" data-year="{{ entity.field_year.value }}">
+      <div class="journey-image">
+        {% if entity.field_image.entity %}
+          {% set image_uri = entity.field_image.entity.fileuri %}
+          {% set image_url = image_uri|file_url %}
+          <img src="{{ image_url }}" alt="{{ entity.field_image.alt ?: entity.title.value }}">
+        {% endif %}
+      </div>
+      <div class="journey-content">
+        <h3>{{ entity.title.value }}</h3>
+        <p>{{ entity.body.value|raw }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div class="timeline-container">
+  <div class="timeline-navigation">
+    <button class="timeline-nav prev"><i class="bi bi-chevron-left"></i></button>
+    <div class="timeline-years">
+    {% for row in rows %}
+      <span class="year">{{ row.content['#row']._entity.field_year.value }}</span>
+    {% endfor %}
+    </div>
+    <button class="timeline-nav next"><i class="bi bi-chevron-right"></i></button>
+  </div>
+</div>

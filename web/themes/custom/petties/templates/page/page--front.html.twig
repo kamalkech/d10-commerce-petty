@@ -1,0 +1,151 @@
+{% include directory ~ '/templates/partials/header.html.twig' %}
+
+{% if page.feature %}
+  {{ page.feature }}
+{% endif %}
+
+
+<!-- Product Detail Section -->
+<section class="product-detail">
+	<div class="container">
+		<div class="product-info">
+			<span class="badge">NEW</span>
+			<h1 class="product-title">Litter-Robot Self-Cleaning</h1>
+
+			<div class="product-rating">
+				<div class="stars">
+					<i class="fas fa-star star"></i>
+					<i class="fas fa-star star"></i>
+					<i class="fas fa-star star"></i>
+					<i class="fas fa-star star"></i>
+					<i class="fas fa-star-half-alt star"></i>
+				</div>
+				<span class="reviews-count">4.5 (55,580 reviews)</span>
+			</div>
+
+			<div class="product-price">$15.00</div>
+
+			<p class="product-description">
+				Experience the ultimate relief from dryness with Sweet Dream's luxurious gel formula. Designed to
+				                    penetrate deeply into your skin layers.
+			</p>
+
+			<div class="product-colors">
+				<div class="color-title">Color</div>
+				<div class="color-options">
+					<div class="color-option black active"></div>
+					<div class="color-option gray"></div>
+					<div class="color-option brown"></div>
+				</div>
+			</div>
+
+			<div class="action-buttons">
+				<button class="btn btn-cart">Add To Cart</button>
+				<button class="btn btn-buy">Buy It Now</button>
+			</div>
+		</div>
+
+		<div class="product-gallery">
+			<div class="main-image">
+				<img src="{{ base_path ~ directory }}/images/litter-robot-main.jpg" alt="Litter-Robot Self-Cleaning">
+			</div>
+			<div class="thumbnail-container">
+				<div class="thumbnail active">
+					<img src="{{ base_path ~ directory }}/images/litter-robot-thumb1.jpg" alt="Litter-Robot Self-Cleaning">
+				</div>
+				<div class="thumbnail">
+					<img src="{{ base_path ~ directory }}/images/litter-robot-thumb2.jpg" alt="Litter-Robot with Cat">
+				</div>
+				<div class="thumbnail">
+					<img src="{{ base_path ~ directory }}/images/litter-robot-thumb3.jpg" alt="Litter-Robot App Control">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Popular Products Section -->
+<section class="popular-products">
+	<div class="container">
+		<h2 class="section-title">Popular Products</h2>
+		<p class="section-subtitle">
+			Favorite Products Loved by Pet Owners Everywhere!
+		</p>
+		<div class="products-grid">
+			<div class="hero-image-left-wrapper">
+				<img class="hero-image-left" src="{{ base_path ~ directory }}/images/hero-cat.jpg" alt="Chat pet owner"/>
+			</div>
+			<div class="product-card">
+				<div class="card">
+					<img src="{{ base_path ~ directory }}/images/cat-cover-bed.jpg" alt="Cat Cover Bed"/>
+				</div>
+				<h3 class="product-name">Cat Cover Bed</h3>
+				<div class="product-price">70.00$</div>
+				<div class="product-rating">★★★★☆</div>
+			</div>
+			<div class="product-card">
+				<div class="card">
+					<img src="{{ base_path ~ directory }}/images/biofood-lamb-rice.jpg" alt="Biofood Lamb & Rice"/>
+				</div>
+				<h3 class="product-name">Biofood Lamb & Rice</h3>
+				<div class="product-price">70.00$</div>
+				<div class="product-rating">★★★★☆</div>
+			</div>
+			<div class="product-card">
+				<div class="card">
+					<img src="{{ base_path ~ directory }}/images/smart-pet-feeder.jpg" alt="Smart Pet Feeder"/>
+				</div>
+				<h3 class="product-name">Smart Pet Feeder</h3>
+				<div class="product-price">99.00$</div>
+				<div class="product-rating">★★★★★</div>
+			</div>
+			<div class="product-card">
+				<div class="card">
+					<img src="{{ base_path ~ directory }}/images/mera-cat-food.jpg" alt="Mera Cat Food"/>
+				</div>
+				<h3 class="product-name">Mera Cat Food</h3>
+				<div class="product-price">70.00$</div>
+				<div class="product-rating">★★★★☆</div>
+			</div>
+			<div class="product-card">
+				<div class="card">
+					<img src="{{ base_path ~ directory }}/images/dog-interactive-toy.jpg" alt="Dog Interactive Toy"/>
+				</div>
+				<h3 class="product-name">Dog Interactive Toy</h3>
+				<div class="product-price">70.00$</div>
+				<div class="product-rating">★★★★☆</div>
+			</div>
+			<button class="btn-all-products">
+				All Products
+				<i class="bi bi-arrow-right"></i>
+			</button>
+			<div class="hero-image-right-wrapper">
+				<img class="hero-image-right" src="{{ base_path ~ directory }}/images/hero-dog.jpg" alt="Chien pet owner"/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="social-section">
+	<div class="social-content">
+		<div class="social-header">
+			<span class="platform">INSTAGRAME</span>
+			<h2 class="handle">@Pettyys</h2>
+			<p class="description">Our Latest Posts</p>
+		</div>
+		<div class="paw-path-left"></div>
+		<div class="social-posts">
+			<img src="{{ base_path ~ directory }}/images/1.png" alt="Pet 1">
+			<img src="{{ base_path ~ directory }}/images/2.png" alt="Pet 2">
+			<img src="{{ base_path ~ directory }}/images/3.png" alt="Pet 3">
+			<img src="{{ base_path ~ directory }}/images/4.png" alt="Pet 4">
+			<img src="{{ base_path ~ directory }}/images/5.png" alt="Pet 5">
+			<img src="{{ base_path ~ directory }}/images/6.png" alt="Pet 6">
+			<img src="{{ base_path ~ directory }}/images/7.png" alt="Pet 7">
+		</div>
+		<div class="paw-path-right"></div>
+	</div>
+</section>
+
+{% include directory ~ '/templates/partials/footer.html.twig' %}
