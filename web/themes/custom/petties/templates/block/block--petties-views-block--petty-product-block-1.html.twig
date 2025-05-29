@@ -27,26 +27,18 @@
  */
 #}
 {% if attributes.hasClass('remove_wrapper') == false %}
-  <section class="best-seller">
+  <section{{ attributes.addClass('popular-products') }}>
 {% endif %}
   <div class="container">
     {{ title_prefix }}
     {% if label %}
       <h2{{ title_attributes.addClass('section-title') }}>{{ label }}</h2>
     {% endif %}
-    <p class="section-subtitle">{{ 'Discover our best-selling products from the last three months' | t }}</p>
+    <p class="section-subtitle">{{ 'Favorite Products Loved by Pet Owners Everywhere!' | t }}</p>
     {{ title_suffix }}
     {% block content %}
       {{ content }}
     {% endblock %}
-    {% set class_icon = 'bi bi-arrow-right' %}
-    {% if language.id == 'ar' %}
-      {% set class_icon = 'bi bi-arrow-left' %}
-    {% endif %}
-
-    <div class="button-wrapper">
-      <button class="btn-all-products">{{ 'All Products' | t }} <i class="{{ class_icon }}"></i></button>
-    </div>
   </div>
 {% if attributes.hasClass('remove_wrapper') == false %}
   </section>
