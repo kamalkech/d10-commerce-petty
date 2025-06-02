@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+
+{{ dump(rows[0].content['#row']._entity.field_link[0].uri) }}
+{{ dump(rows[0].content['#row']._entity) }}
+#}
+
+
+{% for row in rows %}
+  {% set entity = row.content['#row']._entity %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+
+  {% set imageURL = "" %}
+  {% if entity.field_image_media.entity.field_media_image[0].entity.uri.value %}
+    {% set imageURL = file_url(entity.field_image_media.entity.field_media_image[0].entity.uri.value) %}
+  {% endif %}
+
+  <div{{ row.attributes.addClass(row_classes) }}>
+    <div class="hero-bg-elements" style="background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{ imageURL }}) no-repeat center; background-size: cover;"></div>
+      <div class="container">
+        <div class="hero-content gsap-fade-in">
+          <h1>{{ entity.title.value }}</h1>
+          <p>{{ entity.body.summary }}</p>
+          <button class="btn-primary">{{ entity.field_link[0].title }}</button>
+        </div>
+      </div>
+  </div>
+{% endfor %}
+
+

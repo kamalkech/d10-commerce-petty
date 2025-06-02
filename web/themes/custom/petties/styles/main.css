@@ -631,18 +631,59 @@ textarea {
   }
 }
 
-.hero {
-  border-bottom: 0.6px solid rgba(188, 188, 188, 0.8117647059);
-  background: url("../images/heroImage.png") no-repeat center;
-  background-size: cover;
-  position: relative;
-  height: 100vh;
-  object-fit: contain;
-  top: 70px;
-  padding-top: 100px;
-  margin-bottom: 20px;
+.hero-carousel.slick-dotted.slick-slider {
+  margin-bottom: 0;
 }
-.hero .hero-bg-elements {
+
+.hero-carousel .slick-dots {
+  bottom: 30px;
+  z-index: 10;
+}
+.hero-carousel .slick-dots li button:before {
+  color: #ffffff;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.hero-carousel .slick-dots li.slick-active button:before {
+  color: #ffe7a3;
+  opacity: 1;
+}
+.hero-carousel .slick-prev,
+.hero-carousel .slick-next {
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+}
+.hero-carousel .slick-prev:before,
+.hero-carousel .slick-next:before {
+  font-size: 30px;
+  color: #ffffff;
+  opacity: 0.8;
+}
+.hero-carousel .slick-prev:hover:before,
+.hero-carousel .slick-next:hover:before {
+  opacity: 1;
+  color: #ffe7a3;
+}
+.hero-carousel .slick-prev {
+  left: 30px;
+}
+.hero-carousel .slick-next {
+  right: 30px;
+}
+.hero-carousel .hero-slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  padding-top: 100px;
+}
+.hero-carousel .hero-slide .hero-bg-elements {
+  /* background: */
+  /*   linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), */
+  /*   url("../images/heroImage1.png") no-repeat center; */
+  /* background-size: cover; */
   position: absolute;
   top: 0;
   left: 0;
@@ -651,7 +692,7 @@ textarea {
   z-index: 1;
   overflow: hidden;
 }
-.hero .container {
+.hero-carousel .container {
   position: relative;
   z-index: 2;
   display: flex;
@@ -660,14 +701,25 @@ textarea {
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
+  height: 100%;
 }
-.hero .hero-content {
+.hero-carousel .hero-content {
   width: 641px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.hero .hero-content h1 {
+.hero-carousel .hero-content.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.hero-carousel .hero-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+.hero-carousel .hero-content h1 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   font-size: 73px;
@@ -675,7 +727,7 @@ textarea {
   color: #ffffff;
   margin-bottom: 37px;
 }
-.hero .hero-content p {
+.hero-carousel .hero-content p {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-size: 24px;
@@ -683,7 +735,7 @@ textarea {
   color: #ffffff;
   margin-bottom: 37px;
 }
-.hero .hero-content .btn-primary {
+.hero-carousel .hero-content .btn-primary {
   border-radius: 15px;
   padding: 24px 40px;
   background: #ffe7a3;
@@ -694,20 +746,42 @@ textarea {
   text-transform: capitalize;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hero-carousel .hero-content .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 800px) {
-  .hero {
-    background:
-      linear-gradient(rgba(104, 50, 16, 0.3), rgba(104, 50, 16, 0.3)),
-      url("../images/heroImage.png") no-repeat bottom center;
-    background-size: cover;
-    background-position-x: right;
+  .hero-carousel .hero-slide {
+    background-position: right bottom !important;
     top: 0.31px;
     height: 100vh;
     background-clip: border-box;
     opacity: 0.8;
   }
-  .hero::before {
+  .hero-carousel .hero-slide:nth-child(1) {
+    background:
+      linear-gradient(rgba(104, 50, 16, 0.3), rgba(104, 50, 16, 0.3)),
+      url("../images/heroImage.png") no-repeat bottom center;
+    background-size: cover;
+    background-position-x: right;
+  }
+  .hero-carousel .hero-slide:nth-child(2) {
+    background:
+      linear-gradient(rgba(104, 50, 16, 0.3), rgba(104, 50, 16, 0.3)),
+      url("../images/heroImage.png") no-repeat bottom center;
+    background-size: cover;
+    background-position-x: right;
+  }
+  .hero-carousel .hero-slide:nth-child(3) {
+    background:
+      linear-gradient(rgba(104, 50, 16, 0.3), rgba(104, 50, 16, 0.3)),
+      url("../images/heroImage.png") no-repeat bottom center;
+    background-size: cover;
+    background-position-x: right;
+  }
+  .hero-carousel::before {
     width: 140px;
     height: 144px;
     top: 103px;
@@ -716,7 +790,7 @@ textarea {
     opacity: 0.8;
     transform: translate(50px, -50%);
   }
-  .hero::after {
+  .hero-carousel::after {
     width: 246.5px;
     height: 246.5px;
     top: 224px;
@@ -724,32 +798,32 @@ textarea {
     transform: translate(-25px, 210px);
     clip-path: inset(0 0 30% 0);
   }
-  .hero .container {
+  .hero-carousel .container {
     flex-direction: column;
+    justify-content: center;
   }
-  .hero .hero-content {
+  .hero-carousel .hero-content {
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
+    text-align: center;
   }
-  .hero .hero-content h1 {
+  .hero-carousel .hero-content h1 {
     font-family: "Ubuntu", sans-serif;
     font-weight: 700;
     font-size: 32px;
     line-height: 104px;
-    text-align: center;
     color: #ffffff;
     margin-bottom: 2px;
   }
-  .hero .hero-content p {
+  .hero-carousel .hero-content p {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 52px;
-    text-align: center;
     color: #ffffff;
   }
-  .hero .hero-content .btn-primary {
+  .hero-carousel .hero-content .btn-primary {
     width: 100%;
     padding: 24px 0;
     margin-top: 20px;
@@ -762,38 +836,57 @@ textarea {
     border: none;
     cursor: pointer;
   }
-  .hero .paw-path {
+  .hero-carousel .slick-prev {
+    left: 15px;
+  }
+  .hero-carousel .slick-next {
+    right: 15px;
+  }
+  .hero-carousel .paw-path {
     display: none;
   }
 }
 @media (max-width: 480px) {
-  .hero {
+  .hero-carousel {
     padding-top: 70px;
     height: 90vh;
   }
-  .hero .hero-content h1 {
+  .hero-carousel .hero-slide {
+    padding-top: 70px;
+    height: 90vh;
+  }
+  .hero-carousel .hero-content h1 {
     font-size: 24px;
     line-height: 30px;
     margin-bottom: 12px;
   }
-  .hero .hero-content p {
+  .hero-carousel .hero-content p {
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 20px;
   }
-  .hero .hero-content .btn-primary {
+  .hero-carousel .hero-content .btn-primary {
     padding: 16px 0;
     font-size: 16px;
     border-radius: 10px;
   }
-  .hero::before {
+  .hero-carousel .slick-prev,
+  .hero-carousel .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+  .hero-carousel .slick-prev:before,
+  .hero-carousel .slick-next:before {
+    font-size: 20px;
+  }
+  .hero-carousel::before {
     width: 100px;
     height: 104px;
     opacity: 0.6;
     right: 5px;
     transform: translate(30px, -50%);
   }
-  .hero::after {
+  .hero-carousel::after {
     width: 180px;
     height: 180px;
     opacity: 0.6;
@@ -801,69 +894,77 @@ textarea {
   }
 }
 @media (max-width: 375px) {
-  .hero {
+  .hero-carousel {
     padding-top: 60px;
     height: 85vh;
   }
-  .hero .hero-content {
+  .hero-carousel .hero-slide {
+    padding-top: 60px;
+    height: 85vh;
+  }
+  .hero-carousel .hero-content {
     padding: 0 15px;
   }
-  .hero .hero-content h1 {
+  .hero-carousel .hero-content h1 {
     font-size: 22px;
     line-height: 28px;
     margin-bottom: 10px;
   }
-  .hero .hero-content p {
+  .hero-carousel .hero-content p {
     font-size: 12px;
     line-height: 20px;
     margin-bottom: 15px;
   }
-  .hero .hero-content .btn-primary {
+  .hero-carousel .hero-content .btn-primary {
     padding: 14px 0;
     font-size: 15px;
     border-radius: 8px;
   }
-  .hero::before {
+  .hero-carousel::before {
     width: 80px;
     height: 84px;
     opacity: 0.5;
   }
-  .hero::after {
+  .hero-carousel::after {
     width: 160px;
     height: 160px;
     opacity: 0.5;
   }
 }
 @media (max-width: 320px) {
-  .hero {
+  .hero-carousel {
     padding-top: 50px;
     height: 80vh;
   }
-  .hero .hero-content {
+  .hero-carousel .hero-slide {
+    padding-top: 50px;
+    height: 80vh;
+  }
+  .hero-carousel .hero-content {
     padding: 0 12px;
   }
-  .hero .hero-content h1 {
+  .hero-carousel .hero-content h1 {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 8px;
   }
-  .hero .hero-content p {
+  .hero-carousel .hero-content p {
     font-size: 12px;
     line-height: 18px;
     margin-bottom: 12px;
   }
-  .hero .hero-content .btn-primary {
+  .hero-carousel .hero-content .btn-primary {
     padding: 12px 0;
     font-size: 14px;
     border-radius: 6px;
   }
-  .hero::before {
+  .hero-carousel::before {
     width: 60px;
     height: 64px;
     opacity: 0.4;
     right: 0;
   }
-  .hero::after {
+  .hero-carousel::after {
     width: 130px;
     height: 130px;
     opacity: 0.4;
@@ -874,7 +975,6 @@ textarea {
 .brand-partners {
   background-color: #683210;
   padding: 30px 40px;
-  transform: translate(50px, 50px);
   text-align: center;
   background: linear-gradient(120deg, #ffffff 25%, #683210 25%);
   margin-bottom: 111px;
@@ -1185,10 +1285,6 @@ textarea {
 }
 
 .sale-banner {
-  background-image: url("../images/still-life-domestic-animal-accessories-composition 1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding: 32px;
   position: relative;
   overflow: hidden;
@@ -1723,9 +1819,6 @@ textarea {
 .pet-tech-banner {
   width: 100%;
   height: 300px;
-  background-image: url("../images/cat-feeding-tech.jpg");
-  background-size: cover;
-  background-position: center;
   position: relative;
   display: flex;
   align-items: center;
@@ -1749,7 +1842,7 @@ textarea {
   left: 384px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
-  font-size: 42px;
+  font-size: 34px;
   line-height: 52px;
   letter-spacing: -2%;
   text-align: center;
@@ -2563,7 +2656,7 @@ textarea {
 }
 .featured-product .featured-slide .featured-content {
   width: 100%;
-  background-image: url("../images/cat-paw.jpg");
+  background-image: url("../../images/cat-paw.jpg");
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2905,9 +2998,6 @@ textarea {
 
 .flash-sale-banner {
   background-color: #ffffff;
-  background-image: url("../images/flash-sale-bg.jpg");
-  background-size: cover;
-  background-position: center;
   width: 1440px;
   height: 268px;
   top: 7575px;

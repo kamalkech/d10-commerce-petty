@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentSlideIndex = 0;
   let slideInterval;
 
-  initHeroSlider();
+  // initHeroSlider();
 
   function initHeroSlider() {
     if (

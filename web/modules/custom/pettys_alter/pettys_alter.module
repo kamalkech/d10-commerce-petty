@@ -35,7 +35,7 @@ function pettys_alter_form_alter(&$form, FormStateInterface $form_state, $form_i
     unset($form['mail']["widget"][0]['value']['#description']);
     $form['mail']["widget"][0]['value']['#attributes']['placeholder'] = "Enter your email";
     unset($form['mail']["widget"][0]['value']['#prefix']);
-    $form['actions']["submit"]['#value'] = t("Send");
+    // $form['actions']["submit"]['#value'] = t("Send");
     $form['actions']["submit"]['#attributes']['class'] = ["btn", "btn-newsletter"];
   }
 }
