@@ -1,0 +1,20 @@
+#hero .slick-arrow.slick-next {
+  left: 20px;
+}
+#hero .slick-arrow.slick-prev {
+  right: 20px;
+}
+
+.flash-sale-banner .action-buttons .btn-flash-sale1 {
+  margin-right: 600px !important;
+  margin-left: 0px !important;
+}
+
+.faq-section .faq-accordion .faq-item .faq-question,
+.faq-section .faq-accordion .faq-item .faq-answer {
+  text-align: right;
+}
+.faq-section .faq-accordion .faq-item .faq-question:after {
+  left: 19px;
+  right: auto;
+}

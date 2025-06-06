@@ -17,11 +17,11 @@
 
 {{ dump(rows[0].content['#row']._entity.field_link[0].uri) }}
 {{ dump(rows[0].content['#row']._entity) }}
+{{ dump(row.content['#row']._entity.translation('ar').title.value) }}
 #}
 
-
 {% for row in rows %}
-  {% set entity = row.content['#row']._entity %}
+  {% set entity = row.content['#row']._entity.translation(lang) %}
   {%
     set row_classes = [
       default_row_class ? 'views-row',

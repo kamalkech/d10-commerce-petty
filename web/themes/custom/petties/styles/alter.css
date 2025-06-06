@@ -99,3 +99,9 @@ form.commerce-currency-resolver-select-form input[type="submit"] {
   background-color: #cccccc;
   color: #666666;
 }
+
+.faq-section .faq-accordion {
+  right: 260px;
+  transform: inherit;
+  margin: 0 auto;
+}

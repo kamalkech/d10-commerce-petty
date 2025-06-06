@@ -23,6 +23,12 @@ global:
     - core/drupal
     - core/drupalSettings
 
+pettys_rtl:
+  version: VERSION
+  css:
+    theme:
+      styles/rtl.css: {}
+
 pettys_slick:
   js:
     //cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js:
@@ -39,3 +45,4 @@ pettys_slick:
     - core/drupal
     - core/jquery
     - core/once
+    - core/drupalSettings

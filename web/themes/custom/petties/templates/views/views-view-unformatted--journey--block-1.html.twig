@@ -21,7 +21,7 @@
 
 <div class="journey-cards">
   {% for row in rows %}
-    {% set entity = row.content['#row']._entity %}
+    {% set entity = row.content['#row']._entity.translation(lang) %}
 
     <div class="journey-card" data-year="{{ entity.field_year.value }}">
       <div class="journey-image">

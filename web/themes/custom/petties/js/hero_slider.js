@@ -11,9 +11,12 @@
    */
   Drupal.behaviors.PettyHeroSlider = {
     attach: function (context, settings) {
+      var langCode = settings.path.currentLanguage;
+
       // Hero Slider
       if ($(".hero-carousel", context).length) {
         $(".hero-carousel", context).slick({
+          rtl: langCode == "ar" ? true : false,
           dots: true,
           infinite: true,
           speed: 800,
